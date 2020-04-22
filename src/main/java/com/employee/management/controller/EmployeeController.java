@@ -27,9 +27,10 @@ import com.employee.management.repository.EmployeeRepository;
  * @since 22-March-2020
  * 
  */
-@RestController("/api")
+@RestController
 @CrossOrigin(origins = "*")
 public class EmployeeController {
+	
 	/** The Employee repository. */
 	@Autowired
 	private EmployeeRepository employeeRepository;
@@ -66,9 +67,10 @@ public class EmployeeController {
  
 	 
 	/**
-	 * Gets the employees by name.
+	 * Get the employees by name.
 	 *
 	 * @param employeeName the employee name
+	 * 
 	 * @return the employees by name
 	 */
 	@GetMapping("/employees/{name}")
@@ -81,7 +83,8 @@ public class EmployeeController {
 	 * Add the employee.
 	 *
 	 * @param employee the employee
-	 * @return the employee
+	 * 
+	 * @return the employee object
 	 */
 	@PostMapping("/addEmployee")
 	public Employee addEmployee(@Valid @RequestBody Employee employee) {
@@ -105,18 +108,9 @@ public class EmployeeController {
 	public ResponseEntity<Employee> updateEmployee(@PathVariable("id") Long employeeId,
 			@Valid @RequestBody Employee employeeToUpdate) throws ResourceNotFoundException {
 		Employee employee = employeeRepository.findById(employeeId)
-				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId));
-		/*
-		 * employee.setFirstName(employeeToUpdate.getFirstName());
-		 * employee.setLastName(employeeToUpdate.getLastName());
-		 * employee.setDateOfBirth(employeeToUpdate.getDateOfBirth());
-		 * employee.setAge(employeeToUpdate.getAge());
-		 * employee.setDateOfJoin(employeeToUpdate.getDateOfJoin());
-		 * employee.setSalary(employeeToUpdate.getSalary());
-		 * employee.setCity(employeeToUpdate.getCity());
-		 */
+				.orElseThrow(() -> new ResourceNotFoundException("Employee not found for this id :: " + employeeId)); 
 		employeeToUpdate.setId(employee.getId());
-		final Employee updatedEmployee = employeeRepository.save(employeeToUpdate);
+		Employee updatedEmployee = employeeRepository.save(employeeToUpdate);
 		return ResponseEntity.ok(updatedEmployee);
 	}
 
