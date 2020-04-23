@@ -27,21 +27,6 @@ mvn spring-boot:run
 URL : http://localhost:8080/employees
 ```
 
-### Add Employee
-
-```
-
-### Get Employee by Id
-
-```
-URL : http://localhost:8080/employee/7
-```
-
-### Get Employee by Name
-
-```
-URL : http://localhost:8080/employees/Robert
-```
 
 ### Add Employee
 
@@ -63,8 +48,17 @@ Request :
     "country": "Pakistan"
 }
 ```
- 
 
+
+### Get Employee by Id
+``` 
+URL : http://localhost:8080/employee/7
+```
+
+### Get Employee by Name
+```
+URL : http://localhost:8080/employees/Robert
+```
 
 ### Update Employee
 
