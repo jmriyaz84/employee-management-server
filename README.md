@@ -2,7 +2,7 @@
 
 Employee Management Server is a microservice which is developed by using Spring Boot ,Spring MVC ,  Spring Data JPA , Hibernate, Project Lombok ,  MySql , Embedded Tomcat Server & Rest API.
 
-It does the basic CRUD operarions & exposed by using Rest API .
+It does the basic CRUD operations & exposed by using Rest API .
 
 ### To get the Code
 ```
